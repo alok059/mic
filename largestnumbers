@@ -1,0 +1,26 @@
+; largest 16 bit
+MOV BX, 1000H               
+MOV CL, 05H                                   
+MOV AX, [BX]               
+DEC CL                          
+BACK: INC BX               
+INC BX                     
+CMP AX,[BX]                
+JNC Next
+MOV AX, [BX]               
+Next: DEC CL               
+JNZ Back
+MOV [1020H],AX             
+HLT 
+
+; largest 8 bit
+MOV CL, 0AH
+LEA SI,[1000H]
+MOV AL,[SI]
+L1: INC SI
+CMP AL,[SI]
+JNC NEXT
+MOV AL,[SI]
+NEXT: DEC CL
+JNZ L1
+HLT
