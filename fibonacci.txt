@@ -10,3 +10,16 @@ INC SI
 DEC CL
 JNZ L1
 HLT
+; square of fibonacci
+MOV CX, 0AH     
+LEA DI, [2000H]  
+
+L2: 
+MOV AL, [SI]    
+MUL AL          
+MOV [DI], AL   
+
+INC SI          
+INC DI
+DEC CX         
+JNZ L2 
